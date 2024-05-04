@@ -1,0 +1,31 @@
+[gd_scene load_steps=2 format=3 uid="uid://v1biawwmok2m"]
+
+[ext_resource type="Script" path="res://ToDoList.gd" id="1_idsf6"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 567.0
+offset_bottom = 40.0
+script = ExtResource("1_idsf6")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control"]
+layout_mode = 0
+offset_right = 1108.0
+offset_bottom = 43.0
+
+[node name="LineEdit" type="LineEdit" parent="Control/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Button" type="Button" parent="Control/VBoxContainer"]
+layout_mode = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer"]
+layout_mode = 2
