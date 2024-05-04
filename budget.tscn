@@ -1,12 +1,50 @@
-[gd_scene load_steps=4 format=3 uid="uid://bhass5xxbb3bi"]
+[gd_scene load_steps=11 format=3 uid="uid://bhass5xxbb3bi"]
 
+[ext_resource type="Script" path="res://budget.gd" id="1_d8sgv"]
 [ext_resource type="FontFile" uid="uid://fxwgnuumiq3e" path="res://fonts/DroidSans.ttf" id="1_jf527"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uu1v4"]
-bg_color = Color(0.54902, 0.737255, 0.847059, 1)
+bg_color = Color(0.941176, 0.941176, 0.941176, 1)
+border_width_top = 10
+border_color = Color(0.247059, 0.396078, 0.419608, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w1yo0"]
-bg_color = Color(0.74902, 0.854902, 0.917647, 1)
+bg_color = Color(0.905882, 0.905882, 0.905882, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_u51vl"]
+bg_color = Color(0.913725, 0.317647, 0.34902, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mq261"]
+bg_color = Color(0.462745, 0.788235, 0.443137, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3u5t4"]
+content_margin_left = 6.0
+bg_color = Color(0.6, 0.6, 0.6, 0.0235294)
+border_width_bottom = 3
+border_color = Color(0.239216, 0.380392, 0.403922, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nwots"]
+bg_color = Color(0.239216, 0.380392, 0.403922, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fvame"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rplm8"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_bottom = 3
+border_color = Color(1, 1, 1, 1)
 
 [node name="Budget" type="Control"]
 layout_mode = 3
@@ -15,6 +53,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_d8sgv")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
@@ -24,60 +63,62 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer"]
-layout_mode = 2
-
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/ScrollContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="Panel" type="Panel" parent="MarginContainer/ScrollContainer/VBoxContainer"]
+[node name="Panel" type="Panel" parent="MarginContainer/VBoxContainer"]
 modulate = Color(0.964706, 0.964706, 0.964706, 1)
 custom_minimum_size = Vector2(0, 80)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_uu1v4")
 
-[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/ScrollContainer/VBoxContainer/Panel"]
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/Panel"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/margin_bottom = 8
 
-[node name="Label" type="Label" parent="MarginContainer/ScrollContainer/VBoxContainer/Panel/MarginContainer"]
+[node name="Title" type="Label" parent="MarginContainer/VBoxContainer/Panel/MarginContainer"]
 layout_mode = 2
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_font_sizes/font_size = 20
+size_flags_vertical = 8
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 38
+text = "Title"
 horizontal_alignment = 1
 
-[node name="Panel2" type="Panel" parent="MarginContainer/ScrollContainer/VBoxContainer"]
+[node name="Panel2" type="Panel" parent="MarginContainer/VBoxContainer"]
 modulate = Color(0.964706, 0.964706, 0.964706, 1)
 custom_minimum_size = Vector2(0, 200)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_w1yo0")
 
-[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/ScrollContainer/VBoxContainer/Panel2"]
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/Panel2"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/margin_left = 29
+theme_override_constants/margin_right = 10
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/ScrollContainer/VBoxContainer/Panel2/MarginContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/Panel2/MarginContainer"]
 layout_mode = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/ScrollContainer/VBoxContainer/Panel2/MarginContainer/HBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/Panel2/MarginContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/ScrollContainer/VBoxContainer/Panel2/MarginContainer/HBoxContainer/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/Panel2/MarginContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="Label" type="Label" parent="MarginContainer/ScrollContainer/VBoxContainer/Panel2/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer"]
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/Panel2/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
@@ -85,24 +126,24 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("1_jf527")
 theme_override_font_sizes/font_size = 28
 text = "Income"
-horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Label2" type="Label" parent="MarginContainer/ScrollContainer/VBoxContainer/Panel2/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer"]
+[node name="Income" type="Label" parent="MarginContainer/VBoxContainer/Panel2/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
-theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0.352941, 0.619608, 0.337255, 1)
 theme_override_fonts/font = ExtResource("1_jf527")
-theme_override_font_sizes/font_size = 28
+theme_override_font_sizes/font_size = 38
+text = "$0"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/ScrollContainer/VBoxContainer/Panel2/MarginContainer/HBoxContainer/VBoxContainer"]
+[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/VBoxContainer/Panel2/MarginContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="Label" type="Label" parent="MarginContainer/ScrollContainer/VBoxContainer/Panel2/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer2"]
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/Panel2/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer2"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
@@ -110,24 +151,285 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("1_jf527")
 theme_override_font_sizes/font_size = 28
 text = "Expenses"
+vertical_alignment = 1
+
+[node name="Expenses" type="Label" parent="MarginContainer/VBoxContainer/Panel2/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_colors/font_color = Color(0.882353, 0.305882, 0.337255, 1)
+theme_override_fonts/font = ExtResource("1_jf527")
+theme_override_font_sizes/font_size = 38
+text = "$0"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Label2" type="Label" parent="MarginContainer/ScrollContainer/VBoxContainer/Panel2/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer2"]
+[node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer/VBoxContainer/Panel2/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/Panel2/MarginContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="ProgressBar" type="ProgressBar" parent="MarginContainer/VBoxContainer/Panel2/MarginContainer/HBoxContainer/VBoxContainer2/MarginContainer"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_u51vl")
+theme_override_styles/fill = SubResource("StyleBoxFlat_mq261")
+value = 50.0
+show_percentage = false
+
+[node name="MarginContainer2" type="MarginContainer" parent="MarginContainer/VBoxContainer/Panel2/MarginContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/Panel2/MarginContainer/HBoxContainer/VBoxContainer2/MarginContainer2"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/Panel2/MarginContainer/HBoxContainer/VBoxContainer2/MarginContainer2/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("1_jf527")
 theme_override_font_sizes/font_size = 28
+text = "Balance"
+vertical_alignment = 1
+
+[node name="Balance" type="Label" parent="MarginContainer/VBoxContainer/Panel2/MarginContainer/HBoxContainer/VBoxContainer2/MarginContainer2/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_jf527")
+theme_override_font_sizes/font_size = 38
+text = "$0"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer/ScrollContainer/VBoxContainer/Panel2/MarginContainer/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="ProgressBar" type="ProgressBar" parent="MarginContainer/ScrollContainer/VBoxContainer/Panel2/MarginContainer/HBoxContainer/VBoxContainer2"]
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
 custom_minimum_size = Vector2(0, 40)
 layout_mode = 2
-show_percentage = false
+theme_override_constants/separation = 10
+
+[node name="Control" type="Control" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_jf527")
+theme_override_font_sizes/font_size = 23
+text = "View
+"
+vertical_alignment = 1
+
+[node name="OptionButton" type="OptionButton" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_3u5t4")
+item_count = 2
+selected = 0
+popup/item_0/text = "Incomes"
+popup/item_0/id = 0
+popup/item_1/text = "Expenses"
+popup/item_1/id = 1
+
+[node name="add" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_nwots")
+theme_override_styles/hover = SubResource("StyleBoxFlat_fvame")
+text = "  + add income/expense  "
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer/VBoxContainer/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/MarginContainer/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Control" type="Control" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="Control"]
+modulate = Color(0.439216, 0.439216, 0.439216, 0.717647)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer2" type="MarginContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/MarginContainer2"]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="Control/MarginContainer2/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("1_jf527")
+theme_override_font_sizes/font_size = 28
+text = "Description:"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LineEdit" type="LineEdit" parent="Control/MarginContainer2/VBoxContainer"]
+custom_minimum_size = Vector2(600, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_styles/normal = SubResource("StyleBoxFlat_rplm8")
+alignment = 1
+
+[node name="Control" type="Control" parent="Control/MarginContainer2/VBoxContainer"]
+layout_mode = 2
+
+[node name="Control2" type="Control" parent="Control/MarginContainer2/VBoxContainer"]
+layout_mode = 2
+
+[node name="Control3" type="Control" parent="Control/MarginContainer2/VBoxContainer"]
+layout_mode = 2
+
+[node name="Control4" type="Control" parent="Control/MarginContainer2/VBoxContainer"]
+layout_mode = 2
+
+[node name="Control5" type="Control" parent="Control/MarginContainer2/VBoxContainer"]
+layout_mode = 2
+
+[node name="Control6" type="Control" parent="Control/MarginContainer2/VBoxContainer"]
+layout_mode = 2
+
+[node name="Control7" type="Control" parent="Control/MarginContainer2/VBoxContainer"]
+layout_mode = 2
+
+[node name="Control8" type="Control" parent="Control/MarginContainer2/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label2" type="Label" parent="Control/MarginContainer2/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("1_jf527")
+theme_override_font_sizes/font_size = 28
+text = "Amount ($):"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SpinBox" type="SpinBox" parent="Control/MarginContainer2/VBoxContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+allow_greater = true
+alignment = 1
+update_on_text_changed = true
+
+[node name="Control9" type="Control" parent="Control/MarginContainer2/VBoxContainer"]
+layout_mode = 2
+
+[node name="Control10" type="Control" parent="Control/MarginContainer2/VBoxContainer"]
+layout_mode = 2
+
+[node name="Control11" type="Control" parent="Control/MarginContainer2/VBoxContainer"]
+layout_mode = 2
+
+[node name="Control12" type="Control" parent="Control/MarginContainer2/VBoxContainer"]
+layout_mode = 2
+
+[node name="Control13" type="Control" parent="Control/MarginContainer2/VBoxContainer"]
+layout_mode = 2
+
+[node name="Control14" type="Control" parent="Control/MarginContainer2/VBoxContainer"]
+layout_mode = 2
+
+[node name="Control15" type="Control" parent="Control/MarginContainer2/VBoxContainer"]
+layout_mode = 2
+
+[node name="Control16" type="Control" parent="Control/MarginContainer2/VBoxContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/MarginContainer2/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+alignment = 1
+
+[node name="OptionButton" type="OptionButton" parent="Control/MarginContainer2/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+item_count = 2
+popup/item_0/text = "Income"
+popup/item_0/id = 0
+popup/item_1/text = "Expense"
+popup/item_1/id = 1
+
+[node name="OK" type="Button" parent="Control/MarginContainer2/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_nwots")
+theme_override_styles/hover = SubResource("StyleBoxFlat_fvame")
+text = "  OK  "
+
+[node name="OK2" type="Button" parent="Control/MarginContainer2/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_nwots")
+theme_override_styles/hover = SubResource("StyleBoxFlat_fvame")
+text = "  Cancel  "
+
+[connection signal="item_selected" from="MarginContainer/VBoxContainer/HBoxContainer/OptionButton" to="." method="_on_option_button_item_selected"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/add" to="." method="_on_add_pressed"]
+[connection signal="pressed" from="Control/MarginContainer2/VBoxContainer/HBoxContainer/OK" to="." method="_on_ok_pressed"]
+[connection signal="pressed" from="Control/MarginContainer2/VBoxContainer/HBoxContainer/OK2" to="." method="_on_ok_2_pressed"]
