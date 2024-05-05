@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://bhass5xxbb3bi"]
+[gd_scene load_steps=13 format=3 uid="uid://bhass5xxbb3bi"]
 
 [ext_resource type="Script" path="res://budget.gd" id="1_d8sgv"]
 [ext_resource type="FontFile" uid="uid://fxwgnuumiq3e" path="res://fonts/DroidSans.ttf" id="1_jf527"]
@@ -7,6 +7,17 @@
 bg_color = Color(0.941176, 0.941176, 0.941176, 1)
 border_width_top = 10
 border_color = Color(0.247059, 0.396078, 0.419608, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3lauk"]
+bg_color = Color(1, 1, 1, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fvame"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lrvo8"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_bottom = 3
+border_color = Color(0.239216, 0.380392, 0.403922, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w1yo0"]
 bg_color = Color(0.905882, 0.905882, 0.905882, 1)
@@ -37,9 +48,6 @@ corner_radius_top_left = 10
 corner_radius_top_right = 10
 corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fvame"]
-bg_color = Color(0.6, 0.6, 0.6, 0)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rplm8"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
@@ -79,17 +87,40 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_top = 19.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 8
 
-[node name="Title" type="Label" parent="MarginContainer/VBoxContainer/Panel/MarginContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/Panel/MarginContainer"]
 layout_mode = 2
+
+[node name="back" type="Button" parent="MarginContainer/VBoxContainer/Panel/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_3lauk")
+theme_override_styles/hover = SubResource("StyleBoxFlat_fvame")
+text = "  ⏪  "
+
+[node name="Control" type="Control" parent="MarginContainer/VBoxContainer/Panel/MarginContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="Control2" type="Control" parent="MarginContainer/VBoxContainer/Panel/MarginContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="Title" type="LineEdit" parent="MarginContainer/VBoxContainer/Panel/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
 size_flags_vertical = 8
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 38
+theme_override_styles/normal = SubResource("StyleBoxFlat_lrvo8")
 text = "Title"
-horizontal_alignment = 1
 
 [node name="Panel2" type="Panel" parent="MarginContainer/VBoxContainer"]
 modulate = Color(0.964706, 0.964706, 0.964706, 1)
@@ -429,6 +460,7 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_nwots")
 theme_override_styles/hover = SubResource("StyleBoxFlat_fvame")
 text = "  Cancel  "
 
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Panel/MarginContainer/HBoxContainer/back" to="." method="_on_back_pressed"]
 [connection signal="item_selected" from="MarginContainer/VBoxContainer/HBoxContainer/OptionButton" to="." method="_on_option_button_item_selected"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/add" to="." method="_on_add_pressed"]
 [connection signal="pressed" from="Control/MarginContainer2/VBoxContainer/HBoxContainer/OK" to="." method="_on_ok_pressed"]

@@ -6,12 +6,12 @@ var taskList
 
 func _ready():
 	# Get references to UI elements
-	taskInput = $VBoxContainer/LineEdit
-	addButton = $VBoxContainer/Button
-	taskList = $ScrollContainer/VBoxContainer
+	taskInput = $TaskInput
+	addButton = $AddButton
+	taskList = $TaskList
 
 	# Connect button signal to function
-	addButton.connect("pressed", self, "_on_AddButton_pressed")
+	addButton.connect("pressed", Callable(self, "_on_AddButton_pressed"))
 
 func _on_AddButton_pressed():
 	# Get text from the input field

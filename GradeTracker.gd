@@ -6,7 +6,7 @@ var gpaLabel
 func _ready():
 	# Connect button signal to function
 	var button = $Button
-	button.connect("pressed", self, "_on_CalculateButton_pressed")
+	button.connect("pressed", Callable(self, "_on_CalculateButton_pressed"))
 
 	# Populate gradeInputs array with LineEdit nodes
 	for i in range($Subjects.get_child_count()):
@@ -33,6 +33,6 @@ func _on_CalculateButton_pressed():
 
 	if totalCredits > 0:
 		var gpa = weightedGradeSum / totalCredits
-		gpaLabel.text = "GPA: " + str(round(gpa, 2))
+		gpaLabel.text = "GPA: " + str(round(gpa))
 	else:
 		gpaLabel.text = "N/A"

@@ -102,3 +102,6 @@ func remove_income_expense(identifier):
 		expenses.erase(identifier)
 		
 	update_budget()
+
+func _on_back_pressed():
+	get_tree().change_scene_to_file("res://new.tscn")

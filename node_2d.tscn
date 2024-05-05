@@ -24,6 +24,7 @@ offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="Grade" type="LineEdit" parent="Control"]
+layout_mode = 0
 offset_left = 28.0
 offset_top = 33.0
 offset_right = 920.0

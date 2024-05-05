@@ -11,6 +11,7 @@ config_version=5
 [application]
 
 config/name="Assistant-Eureka"
+run/main_scene="res://New.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon.svg"
 
